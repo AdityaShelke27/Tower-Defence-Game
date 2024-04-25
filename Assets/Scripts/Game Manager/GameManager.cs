@@ -68,6 +68,7 @@ public class GameManager : MonoBehaviour
         Time.timeScale = 1;
         levelReached = PlayerPrefs.GetInt(TagManager.LEVEL_REACHED) + 1;
         PlayerPrefs.SetInt(TagManager.LEVEL_REACHED, levelReached);
+        Debug.Log(levelReached);
         m_SceneFader.FadeTo("Level " + levelReached);
     }
     public void Menu()

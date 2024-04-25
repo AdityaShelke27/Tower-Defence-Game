@@ -39,9 +39,7 @@ public class PlayerStats : MonoBehaviour
     }
     public void UpdateMoney(int cost)
     {
-        Debug.Log(cost);
         money += cost;
-        Debug.Log(money);
         m_MoneyText.text = money.ToString();
     }
     public int GetLives()
