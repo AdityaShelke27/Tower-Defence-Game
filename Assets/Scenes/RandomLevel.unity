@@ -852,7 +852,7 @@ MonoBehaviour:
   m_WaypointParent: {fileID: 552951363}
   m_StartPoint: {fileID: 8383236865475306917, guid: bc5406bd39a6dc94797f6d9c06bea5b3, type: 3}
   m_EndPoint: {fileID: 5776490766470652355, guid: d2b181f6bd9ee8c4d927c3f12a1690f8, type: 3}
-  pathLength: 50
+  pathLength: 90
 --- !u!1 &254138392
 GameObject:
   m_ObjectHideFlags: 0
@@ -2996,9 +2996,9 @@ RectTransform:
   m_Father: {fileID: 1543489682}
   m_RootOrder: -1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0.5, y: 0}
-  m_AnchorMax: {x: 0.5, y: 0}
-  m_AnchoredPosition: {x: -0.000012994, y: 226.59}
+  m_AnchorMin: {x: 0.5, y: 0.5}
+  m_AnchorMax: {x: 0.5, y: 0.5}
+  m_AnchoredPosition: {x: -0.000012994, y: -135.41}
   m_SizeDelta: {x: 500, y: 140}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1021037993

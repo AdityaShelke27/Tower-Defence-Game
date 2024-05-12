@@ -17,6 +17,7 @@ public class RandomPathGenerator : MonoBehaviour
     private float m_Size;
     private int count = 0;
     public int pathLength;
+    private Vector3 m_LookPos;
     int x;
     int z;
     void Awake()
@@ -25,7 +26,7 @@ public class RandomPathGenerator : MonoBehaviour
         mat = new bool[width, height];
         x = 0;
         z = height / 2;
-        Instantiate(m_StartPoint, new Vector3(x * (m_Size + 1), 2.5f, -z * (m_Size + 1)), Quaternion.identity);
+        GameObject start = Instantiate(m_StartPoint, new Vector3(x * (m_Size + 1), 2.5f, -z * (m_Size + 1)), Quaternion.identity);
         m_WaypointParent.position = new Vector3(x * (m_Size + 1), 2.5f, -z * (m_Size + 1));
         MakePath(x, z);
         while (count < pathLength)
@@ -37,6 +38,7 @@ public class RandomPathGenerator : MonoBehaviour
         CreateMap();
 
         SetWaypoints();
+        start.transform.LookAt(m_LookPos);
     }
     void MakePath(int x, int z)
     {
@@ -156,6 +158,7 @@ public class RandomPathGenerator : MonoBehaviour
         GameObject _wayPoint = new GameObject($"Waypoint{m_WaypointParent.childCount}");
         _wayPoint.transform.position = new Vector3(currentPos[0] * (m_Size + 1), 0, -currentPos[1] * (m_Size + 1));
         _wayPoint.transform.SetParent(m_WaypointParent);
+        bool firstTime = false;
         do
         {
             if (dir != 1 && currentPos[0] + 1 < mat.GetLength(0) && mat[currentPos[0] + 1, currentPos[1]])
@@ -165,6 +168,11 @@ public class RandomPathGenerator : MonoBehaviour
                     GameObject wayPoint = new GameObject($"Waypoint{m_WaypointParent.childCount}");
                     wayPoint.transform.position = new Vector3(currentPos[0] * (m_Size + 1), 0, -currentPos[1] * (m_Size + 1));
                     wayPoint.transform.SetParent(m_WaypointParent);
+                    if(!firstTime)
+                    {
+                        m_LookPos = wayPoint.transform.position;
+                        firstTime = true;
+                    }
                     isX = true;
                     dir = 0;
                 }
@@ -178,6 +186,11 @@ public class RandomPathGenerator : MonoBehaviour
                     GameObject wayPoint = new GameObject($"Waypoint{m_WaypointParent.childCount}");
                     wayPoint.transform.position = new Vector3(currentPos[0] * (m_Size + 1), 0, -currentPos[1] * (m_Size + 1));
                     wayPoint.transform.SetParent(m_WaypointParent);
+                    if (!firstTime)
+                    {
+                        m_LookPos = wayPoint.transform.position;
+                        firstTime = true;
+                    }
                     isX = true;
                     dir = 1;
                 }
@@ -191,6 +204,11 @@ public class RandomPathGenerator : MonoBehaviour
                     GameObject wayPoint = new GameObject($"Waypoint{m_WaypointParent.childCount}");
                     wayPoint.transform.position = new Vector3(currentPos[0] * (m_Size + 1), 0, -currentPos[1] * (m_Size + 1));
                     wayPoint.transform.SetParent(m_WaypointParent);
+                    if (!firstTime)
+                    {
+                        m_LookPos = wayPoint.transform.position;
+                        firstTime = true;
+                    }
                     isX = false;
                     dir = 2;
                 }
@@ -204,6 +222,11 @@ public class RandomPathGenerator : MonoBehaviour
                     GameObject wayPoint = new GameObject($"Waypoint{m_WaypointParent.childCount}");
                     wayPoint.transform.position = new Vector3(currentPos[0] * (m_Size + 1), 0, -currentPos[1] * (m_Size + 1));
                     wayPoint.transform.SetParent(m_WaypointParent);
+                    if (!firstTime)
+                    {
+                        m_LookPos = wayPoint.transform.position;
+                        firstTime = true;
+                    }
                     isX = false;
                     dir = 3;
                 }
@@ -217,6 +240,11 @@ public class RandomPathGenerator : MonoBehaviour
                 GameObject wayPoint = new GameObject($"Waypoint{m_WaypointParent.childCount}");
                 wayPoint.transform.position = new Vector3(currentPos[0] * (m_Size + 1), 0, -currentPos[1] * (m_Size + 1));
                 wayPoint.transform.SetParent(m_WaypointParent);
+                if (!firstTime)
+                {
+                    m_LookPos = wayPoint.transform.position;
+                    firstTime = true;
+                }
                 isPathOver = true;
             }
         } while (!isPathOver);

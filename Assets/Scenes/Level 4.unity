@@ -2288,18 +2288,22 @@ MonoBehaviour:
   - enemy: {fileID: 7410218904320336896, guid: 525516e41b5fd054f82a870787244537, type: 3}
     count: 1
     spawnRate: 1
-  - enemy: {fileID: 7410218904320336896, guid: 525516e41b5fd054f82a870787244537, type: 3}
-    count: 3
-    spawnRate: 2
   - enemy: {fileID: 7410218904320336896, guid: fcf8dc8fa615bed4fb7feb8ed4733964, type: 3}
-    count: 5
+    count: 3
     spawnRate: 4
+  - enemy: {fileID: 7410218904320336896, guid: 525516e41b5fd054f82a870787244537, type: 3}
+    count: 2
+    spawnRate: 2
   - enemy: {fileID: 7410218904320336896, guid: e07e6410a2ed01749b211a80dc4fa941, type: 3}
     count: 1
     spawnRate: 1
   - enemy: {fileID: 7410218904320336896, guid: e07e6410a2ed01749b211a80dc4fa941, type: 3}
     count: 2
     spawnRate: 1
+  - enemy: {fileID: 7410218904320336896, guid: fcf8dc8fa615bed4fb7feb8ed4733964, type: 3}
+    count: 2
+    spawnRate: 1
+  m_EnemyTypes: []
   counterUI: {fileID: 494060781}
   timeBetweenWaves: 5
   spawnPoint: {fileID: 624745188}
@@ -2347,8 +2351,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   money: 0
-  startMoney: 2147483647
-  m_maxLives: 1
+  startMoney: 300
+  m_maxLives: 5
   m_LivesText: {fileID: 730067857}
   m_MoneyText: {fileID: 1766191012}
 --- !u!114 &249343803
@@ -6215,14 +6219,14 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 624745185}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalRotation: {x: 0, y: 1, z: 0, w: 0}
   m_LocalPosition: {x: 70, y: 2.5, z: -5}
   m_LocalScale: {x: 4, y: 4, z: 4}
   m_ConstrainProportionsScale: 1
   m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 8
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 180, z: 0}
 --- !u!1001 &632112787
 PrefabInstance:
   m_ObjectHideFlags: 0

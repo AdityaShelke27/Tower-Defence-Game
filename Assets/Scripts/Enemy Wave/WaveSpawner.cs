@@ -34,8 +34,17 @@ public class WaveSpawner : MonoBehaviour
             
         }
     }
+    private void OnEnable()
+    {
+        SceneManager.sceneLoaded += OnSceneLoaded;
+    }
+    private void OnDisable()
+    {
+        SceneManager.sceneLoaded -= OnSceneLoaded;
+    }
     private void Start()
     {
+        
         waveNumber = 0;
         if(SceneManager.GetActiveScene().name == "RandomLevel")
         {
@@ -77,10 +86,15 @@ public class WaveSpawner : MonoBehaviour
         s_EnemiesAlive = wave.count;
         for(int i = 0; i < wave.count; i++)
         {
-            Instantiate(wave.enemy, spawnPoint.position, Quaternion.identity);
+            Instantiate(wave.enemy, spawnPoint.position, spawnPoint.rotation);
             yield return new WaitForSeconds(1 / wave.spawnRate);
         }
         waveNumber++;
         
+    }
+
+    void OnSceneLoaded(Scene current, LoadSceneMode mode)
+    {
+        s_EnemiesAlive = 0;
     }
 }

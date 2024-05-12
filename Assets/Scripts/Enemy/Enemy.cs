@@ -39,8 +39,10 @@ public class Enemy : MonoBehaviour
     {
         Vector3 dir = target.position - transform.position;
         Vector3 moveFrame = dir.normalized * m_Speed * Time.deltaTime;
-        transform.Translate(moveFrame);
-        if(dir.magnitude < moveFrame.magnitude)
+        transform.position += moveFrame;
+        transform.rotation = Quaternion.Lerp(transform.rotation, Quaternion.LookRotation(dir.normalized), 0.3f);
+
+        if (dir.magnitude < moveFrame.magnitude)
         {
             if(waypointIndex < Waypoints.points.Length)
             {

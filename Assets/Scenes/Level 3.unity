@@ -2195,6 +2195,7 @@ MonoBehaviour:
   - enemy: {fileID: 7410218904320336896, guid: e07e6410a2ed01749b211a80dc4fa941, type: 3}
     count: 2
     spawnRate: 1
+  m_EnemyTypes: []
   counterUI: {fileID: 494060781}
   timeBetweenWaves: 5
   spawnPoint: {fileID: 624745188}
@@ -2242,8 +2243,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   money: 0
-  startMoney: 2147483647
-  m_maxLives: 1
+  startMoney: 300
+  m_maxLives: 7
   m_LivesText: {fileID: 730067857}
   m_MoneyText: {fileID: 1766191012}
 --- !u!114 &249343803
